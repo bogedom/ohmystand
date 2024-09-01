@@ -5,18 +5,17 @@ import * as THREE from 'three';
 // @ts-ignore
 import FOG from 'vanta/dist/vanta.fog.min';
 import { DOCUMENT } from '@angular/common';
+import { LayoutComponent } from './core/layout/layout/layout.component';
 
 
 @Component({
-  selector: 'app-root',
+  selector: 'oms-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, LayoutComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.scss'
 })
 export class AppComponent implements OnInit {
-  title = 'ohmystand';
-
 
   constructor(
     @Inject(DOCUMENT) private document: Document,
@@ -28,7 +27,7 @@ export class AppComponent implements OnInit {
   }
 
   private initVantaEffect(): void {
-    FOG({
+    const vanta =  FOG({
       el: this.el.nativeElement.parentElement.parentElement,
       THREE: THREE,
       highlightColor: '#00e8ff',
@@ -40,5 +39,9 @@ export class AppComponent implements OnInit {
       zoom: 0.7,
       shininess: 10,
     });
+
+    setTimeout(() => {
+      vanta.resize();
+    })
   }
 }
