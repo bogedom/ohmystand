@@ -7,7 +7,10 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:ohmystand": "node dist/ohmystand/server/server.mjs"
+    "deploy": "firebase deploy",
+    "serve:ssr:ohmystand": "node dist/ohmystand/server/server.mjs",
+    "----": "",
+    "firebase emulate": "sudo firebase emulators:start"
   },
   "private": true,
   "dependencies": {
@@ -24,6 +27,7 @@
     "@angular/ssr": "^18.2.2",
     "express": "^4.18.2",
     "firebase": "^10.13.1",
+    "firebase-tools": "^13.16.0",
     "rxjs": "~7.8.0",
     "three": "^0.139.2",
     "tslib": "^2.3.0",

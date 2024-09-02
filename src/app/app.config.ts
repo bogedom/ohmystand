@@ -4,6 +4,7 @@ import { provideRouter } from '@angular/router';
 import { routes } from './app.routes';
 import { provideClientHydration } from '@angular/platform-browser';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { getAnalytics, provideAnalytics } from '@angular/fire/analytics';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -18,6 +19,7 @@ export const appConfig: ApplicationConfig = {
       messagingSenderId: "137154397242",
       appId: "1:137154397242:web:d85c99e2ae42272e4ba103",
       measurementId: "G-T4778Z0PPC"
-    }))
+    })),
+    provideAnalytics(() => getAnalytics()),
   ]
 };
