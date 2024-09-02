@@ -1,4 +1,4 @@
-import { Component, ElementRef, Inject, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, Inject, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
 import * as THREE from 'three';
@@ -18,9 +18,8 @@ import { LayoutComponent } from './core/layout/layout/layout.component';
 export class AppComponent implements OnInit {
 
   constructor(
-    @Inject(DOCUMENT) private document: Document,
-    private el: ElementRef) {
-  }
+    private el: ElementRef,
+  ) {}
 
   ngOnInit(): void {
     this.initVantaEffect();
@@ -39,9 +38,5 @@ export class AppComponent implements OnInit {
       zoom: 0.7,
       shininess: 10,
     });
-
-    setTimeout(() => {
-      vanta.resize();
-    })
   }
 }
