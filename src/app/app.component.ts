@@ -5,7 +5,7 @@ import * as THREE from 'three';
 // @ts-ignore
 import FOG from 'vanta/dist/vanta.fog.min';
 import { DOCUMENT } from '@angular/common';
-import { LayoutComponent } from './core/layout/layout/layout.component';
+import { LayoutComponent } from './core-ui/layout/layout/layout.component';
 
 
 @Component({
