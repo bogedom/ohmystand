@@ -1,0 +1,77 @@
+<div class="overflow-x-auto glass p-4">
+  <h1 class="text-2xl font-extrabold">Оформити замовлення</h1>
+  <div class="flex w-full flex-col">
+    <div class="divider"></div>
+  </div>
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+    <form [formGroup]="formGroup" (click)="onSubmit()">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+        <label class="form-control">
+          <div class="label">
+            <span class="label-text">Ім'я</span>
+          </div>
+          <input
+            type="text"
+            class="input input-bordered w-full max-w-xs bg-transparent"
+            [formControlName]="'firstName'"
+          />
+        </label>
+
+        <label class="form-control">
+          <div class="label">
+            <span class="label-text">Прізвище</span>
+          </div>
+          <input
+            type="text"
+            class="input input-bordered w-full max-w-xs bg-transparent"
+            [formControlName]="'lastName'"
+          />
+        </label>
+
+        <label class="form-control">
+          <div class="label">
+            <span class="label-text">Телефон</span>
+          </div>
+          <input
+            type="text"
+            class="input input-bordered w-full max-w-xs bg-transparent"
+            [formControlName]="'phone'"
+          />
+        </label>
+
+        <label class="form-control">
+          <div class="label">
+            <span class="label-text">Email</span>
+          </div>
+          <input
+            type="text"
+            class="input input-bordered w-full max-w-xs bg-transparent"
+            [formControlName]="'email'"
+          />
+        </label>
+
+        <label class="form-control">
+          <div class="label">
+            <span class="label-text">Країна</span>
+          </div>
+          <input
+            type="text"
+            class="input input-bordered w-full max-w-xs bg-transparent"
+            [formControlName]="'country'"
+          />
+        </label>
+
+        <label class="form-control">
+          <div class="label">
+            <span class="label-text">Місто</span>
+          </div>
+          <input
+            type="text"
+            class="input input-bordered w-full max-w-xs bg-transparent"
+            [formControlName]="'city'"
+          />
+        </label>
+      </div>
+    </form>
+  </div>
+</div>

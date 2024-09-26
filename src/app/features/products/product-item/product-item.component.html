@@ -1,4 +1,4 @@
-<div class="card glass w-96">
+<div class="card glass w-auto lg:w-96">
   <figure>
     <img
       src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
@@ -6,9 +6,9 @@
   </figure>
   <div class="card-body">
     <h2 class="card-title">Elektron Digitakt</h2>
-    <p>How to park your car at your garage?</p>
+    <p><span class="font-semibold">850 UAH</span></p>
     <div class="card-actions justify-end">
-      <button class="btn btn-primary">Learn now!</button>
+      <button class="btn btn-primary" (click)="onAddToCart()">Add to cart</button>
     </div>
   </div>
 </div>

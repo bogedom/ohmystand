@@ -1,6 +1,8 @@
 <div class="navbar ">
   <div class="flex-1">
-    <a class="btn btn-ghost text-xl leading-5">OH MY <br/> STAND</a>
+    <a class="btn btn-ghost text-xl leading-5"
+       [routerLink]="['/']"
+    >OH MY <br/> STAND</a>
   </div>
   <div class="flex-none">
     <div class="dropdown dropdown-end">
@@ -28,7 +30,7 @@
           <span class="text-lg font-bold">8 Items</span>
           <span class="text-info">Subtotal: $999</span>
           <div class="card-actions">
-            <button class="btn btn-primary btn-block">View cart</button>
+            <button class="btn btn-primary btn-block" [routerLink]="['cart']">View cart</button>
           </div>
         </div>
       </div>
