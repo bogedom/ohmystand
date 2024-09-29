@@ -1,0 +1,10 @@
+<p>product-list works!</p>
+<section>
+  <h1>Stands</h1>
+  <ul>
+    <li *ngFor="let product of products$ | async">
+      {{product.id}}
+      {{product.name}}
+    </li>
+  </ul>
+</section>
