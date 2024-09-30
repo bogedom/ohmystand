@@ -14,7 +14,7 @@ import { ToastrService } from 'ngx-toastr';
   styleUrl: './stand-form.component.scss'
 })
 export class StandFormComponent implements OnChanges {
-  @Input() stand?: Stand;
+  @Input() stand?: Partial<Stand>;
 
   form: FormGroup;
 
@@ -42,7 +42,7 @@ export class StandFormComponent implements OnChanges {
     })
   }
 
-  private updateForm(stand: Stand): void {
+  private updateForm(stand: Partial<Stand>): void {
     this.form.patchValue(stand);
   }
 }

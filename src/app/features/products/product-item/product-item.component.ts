@@ -8,7 +8,13 @@ import { Component } from '@angular/core';
   styleUrl: './product-item.component.scss'
 })
 export class ProductItemComponent {
+  isLoading = false;
 
   onAddToCart(): void {
+    this.isLoading = true;
+
+    setTimeout(() => {
+      this.isLoading = false;
+    }, 600)
   }
 }

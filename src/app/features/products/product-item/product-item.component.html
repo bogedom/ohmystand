@@ -6,9 +6,14 @@
   </figure>
   <div class="card-body">
     <h2 class="card-title">Elektron Digitakt</h2>
-    <p><span class="font-semibold">850 UAH</span></p>
+    <p><span class="font-semibold">850 ГРН</span></p>
     <div class="card-actions justify-end">
-      <button class="btn btn-primary" (click)="onAddToCart()">Add to cart</button>
+      <button class="btn btn-primary" (click)="onAddToCart()">
+        @if (isLoading) {
+          <span class="loading loading-spinner"></span>
+        }
+        Додати y кошик
+      </button>
     </div>
   </div>
 </div>
