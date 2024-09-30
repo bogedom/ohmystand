@@ -1,10 +1,11 @@
-import { Component, ElementRef, OnInit } from '@angular/core';
+import { ApplicationRef, Component, ElementRef, inject, OnInit } from '@angular/core';
 import { HeaderComponent } from '../header/header.component';
 import { RouterOutlet } from '@angular/router';
 import { FooterComponent } from '../footer/footer.component';
 import * as THREE from 'three';
 // @ts-ignore
 import FOG from 'vanta/dist/vanta.fog.min';
+import { first } from 'rxjs';
 
 @Component({
   selector: 'oms-layout',
@@ -21,10 +22,16 @@ export class LayoutComponent implements OnInit {
 
   constructor(
     private el: ElementRef,
-  ) {}
+  ) {
+    const applicationRef = inject(ApplicationRef);
+
+    applicationRef.isStable.pipe(first((isStable) => isStable)).subscribe(() => {
+      setTimeout(() => { this.initVantaEffect(); });
+    });
+  }
 
   ngOnInit(): void {
-    this.initVantaEffect();
+
   }
 
   private initVantaEffect(): void {
