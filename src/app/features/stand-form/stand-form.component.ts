@@ -1,6 +1,8 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Stand } from '../../core/api/stands/stand';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'oms-stand-form',
@@ -16,7 +18,10 @@ export class StandFormComponent implements OnChanges {
 
   form: FormGroup;
 
-  constructor(private readonly fb: FormBuilder) {
+  constructor(
+    private readonly fb: FormBuilder,
+    private readonly toastr: ToastrService,
+  ) {
     this.form = this.initForm();
   }
 
@@ -28,6 +33,7 @@ export class StandFormComponent implements OnChanges {
 
   onSubmitForm(): void {
     console.log(this.form.value);
+    this.toastr.success('Hello world!', 'Toastr fun!');
   }
 
   private initForm(): FormGroup {

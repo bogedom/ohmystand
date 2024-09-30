@@ -4,6 +4,23 @@
 @tailwind utilities;
 
 body {
-  height: 100%;
+  height: 100vh;
   font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+/* Override ngx-toastr styles */
+.toast-success {
+  @apply bg-success text-success-content #{!important};
+}
+
+.toast-info {
+  @apply bg-info text-info-content #{!important};
+}
+
+.toast-warning {
+  @apply bg-warning text-warning-content #{!important};
+}
+
+.toast-error {
+  @apply bg-error text-error-content #{!important};
 }

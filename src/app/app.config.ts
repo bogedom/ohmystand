@@ -7,6 +7,8 @@ import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { getAnalytics, provideAnalytics } from '@angular/fire/analytics';
 import { environment } from '../environments/environment';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
+import { provideToastr } from 'ngx-toastr';
+import { provideAnimations } from '@angular/platform-browser/animations';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -16,5 +18,11 @@ export const appConfig: ApplicationConfig = {
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAnalytics(() => getAnalytics()),
     provideFirestore(() => getFirestore(environment.firestore.databaseId)),
+    provideAnimations(),
+    provideToastr({
+      timeOut: 10000,
+      positionClass: 'toast-top-right',
+      preventDuplicates: true,
+    }),
   ]
 };
