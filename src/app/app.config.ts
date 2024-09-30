@@ -20,8 +20,8 @@ export const appConfig: ApplicationConfig = {
     provideFirestore(() => getFirestore(environment.firestore.databaseId)),
     provideAnimations(),
     provideToastr({
-      timeOut: 10000,
-      positionClass: 'toast-top-right',
+      timeOut: 5000,
+      positionClass: 'toast-bottom-right',
       preventDuplicates: true,
     }),
   ]

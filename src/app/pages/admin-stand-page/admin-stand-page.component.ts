@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { StandTableComponent } from '../../features/stand-table/stand-table.component';
+import { StandTableComponent } from '../../features-admin/stand-table/stand-table.component';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Stand } from '../../core/api/stands/stand';
 

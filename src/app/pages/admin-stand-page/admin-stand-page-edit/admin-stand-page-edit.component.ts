@@ -1,10 +1,12 @@
 import { Component, Inject, Input, OnChanges, OnInit } from '@angular/core';
-import { StandFormComponent } from '../../../features/stand-form/stand-form.component';
+import { StandFormComponent } from '../../../features-admin/stand-form/stand-form.component';
 import { STAND_SERVICE_TOKEN } from '../../../core/api/stands/stand-service-token';
 import { FirestoreCollectionService } from '../../../core/firestore/firestore-collection.service';
 import { Stand } from '../../../core/api/stands/stand';
 import { take, tap } from 'rxjs';
 import { DocumentSnapshot } from '@firebase/firestore';
+import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'oms-admin-stand-page-edit',
@@ -18,10 +20,13 @@ import { DocumentSnapshot } from '@firebase/firestore';
 export class AdminStandPageEditComponent implements OnInit {
   @Input() id?: string;
 
-  standDoc?: DocumentSnapshot;
   stand?: Partial<Stand>;
 
-  constructor(@Inject(STAND_SERVICE_TOKEN) private readonly standService: FirestoreCollectionService<Stand>) {
+  constructor(
+    @Inject(STAND_SERVICE_TOKEN) private readonly standService: FirestoreCollectionService<Stand>,
+    private readonly toastr: ToastrService,
+    private readonly router: Router,
+  ) {
   }
 
   ngOnInit(): void {
@@ -30,11 +35,26 @@ export class AdminStandPageEditComponent implements OnInit {
     }
   }
 
+  onSaveStand(stand: Partial<Stand>): void {
+    if (!this.id || !this.stand) {
+      return;
+    }
+
+    this.standService.update(this.id, stand)
+      .pipe(
+        tap(() => {
+          this.toastr.success('Updated');
+          this.router.navigate(['admin', 'stands']).then();
+        }),
+        take(1)
+      )
+      .subscribe();
+  }
+
   private loadStand(id: string): void {
-    this.standService.getById(id)
+    this.standService.getDocument(id)
       .pipe(
         tap((document) => {
-          this.standDoc = document;
           this.stand = document.data();
         }),
         take(1)

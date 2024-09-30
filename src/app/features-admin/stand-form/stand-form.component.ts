@@ -1,8 +1,6 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Stand } from '../../core/api/stands/stand';
-import { Router } from '@angular/router';
-import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'oms-stand-form',
@@ -15,12 +13,12 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class StandFormComponent implements OnChanges {
   @Input() stand?: Partial<Stand>;
+  @Output() formSubmit = new EventEmitter<Partial<Stand>>();
 
   form: FormGroup;
 
   constructor(
     private readonly fb: FormBuilder,
-    private readonly toastr: ToastrService,
   ) {
     this.form = this.initForm();
   }
@@ -32,8 +30,7 @@ export class StandFormComponent implements OnChanges {
   }
 
   onSubmitForm(): void {
-    console.log(this.form.value);
-    this.toastr.success('Hello world!', 'Toastr fun!');
+    this.formSubmit.emit(this.form.value);
   }
 
   private initForm(): FormGroup {

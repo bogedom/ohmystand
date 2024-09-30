@@ -15,6 +15,6 @@ export class ProductItemComponent {
 
     setTimeout(() => {
       this.isLoading = false;
-    }, 600)
+    }, 1500)
   }
 }
