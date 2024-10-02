@@ -1,5 +1,5 @@
 import { Component, Inject, Input, OnChanges, OnInit } from '@angular/core';
-import { StandFormComponent } from '../../../features-admin/stand-form/stand-form.component';
+import { StandFormComponent } from '../../../admin-features/stand-form/stand-form.component';
 import { STAND_SERVICE_TOKEN } from '../../../core/api/stands/stand-service-token';
 import { FirestoreCollectionService } from '../../../core/firestore/firestore-collection.service';
 import { Stand } from '../../../core/api/stands/stand';

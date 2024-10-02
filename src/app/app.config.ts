@@ -9,6 +9,7 @@ import { environment } from '../environments/environment';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { provideToastr } from 'ngx-toastr';
 import { provideAnimations } from '@angular/platform-browser/animations';
+import { getStorage, provideStorage } from '@angular/fire/storage';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -19,6 +20,7 @@ export const appConfig: ApplicationConfig = {
     provideAnalytics(() => getAnalytics()),
     provideFirestore(() => getFirestore(environment.firestore.databaseId)),
     provideAnimations(),
+    provideStorage(() => getStorage()),
     provideToastr({
       timeOut: 5000,
       positionClass: 'toast-bottom-right',

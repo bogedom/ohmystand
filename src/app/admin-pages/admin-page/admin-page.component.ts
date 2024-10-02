@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { StandTableComponent } from '../../features-admin/stand-table/stand-table.component';
+import { StandTableComponent } from '../../admin-features/stand-table/stand-table.component';
 import { RouterOutlet } from '@angular/router';
 import { BreadcrumbComponent } from '../../core-ui/breadcrumb/breadcrumb.component';
 

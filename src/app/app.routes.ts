@@ -9,6 +9,6 @@ export const routes: Routes = [
   { path: 'checkout', component: CheckoutComponent },
   {
     path: 'admin',
-    loadChildren: () => import('./pages/admin-page/admin-page.routes')
+    loadChildren: () => import('./admin-pages/admin-page/admin-page.routes')
   },
 ];
