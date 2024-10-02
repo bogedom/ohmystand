@@ -16,6 +16,11 @@ const adminPageRoutes: Routes = [
         path: 'stands',
         loadChildren: () => import('../admin-stand-page/admin-stand-page.routes'),
         data: { breadcrumb: 'Stands' },
+      },
+      {
+        path: 'storage',
+        loadChildren: () => import('../admin-storage-page/admin-storage-page.routes'),
+        data: { breadcrumb: 'Storage' },
       }
     ]
   },

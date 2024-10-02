@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { StandTableComponent } from '../../admin-features/stand-table/stand-table.component';
-import { RouterOutlet } from '@angular/router';
+import { RouterLink, RouterOutlet } from '@angular/router';
 import { BreadcrumbComponent } from '../../core-ui/breadcrumb/breadcrumb.component';
 
 @Component({
@@ -9,7 +9,8 @@ import { BreadcrumbComponent } from '../../core-ui/breadcrumb/breadcrumb.compone
   imports: [
     StandTableComponent,
     RouterOutlet,
-    BreadcrumbComponent
+    BreadcrumbComponent,
+    RouterLink
   ],
   templateUrl: './admin-page.component.html',
   styleUrl: './admin-page.component.scss'

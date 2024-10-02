@@ -1,0 +1,7 @@
+<div class="flex">
+  <oms-admin-storage-list (selectedItemChange)="selectedItem = $event" />
+
+  @if (selectedItem) {
+    <oms-admin-storage-file-preview [item]="selectedItem" />
+  }
+</div>
